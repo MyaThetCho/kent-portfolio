@@ -1,138 +1,216 @@
 "use strict";
 
-const artworkGrid = document.getElementById("artworkGrid");
-const filterButtons = document.querySelectorAll(".filter-button");
+const collectionsContainer = document.getElementById(
+  "collectionsContainer"
+);
+
+const collectionNavigation = document.getElementById(
+  "collectionNavigation"
+);
 
 const lightbox = document.getElementById("lightbox");
 const lightboxClose = document.getElementById("lightboxClose");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxTitle = document.getElementById("lightboxTitle");
-const lightboxCategory = document.getElementById("lightboxCategory");
+const lightboxCategory = document.getElementById(
+  "lightboxCategory"
+);
 const lightboxDescription = document.getElementById(
   "lightboxDescription"
 );
-const lightboxNumber = document.getElementById("lightboxNumber");
+const lightboxNumber = document.getElementById(
+  "lightboxNumber"
+);
 
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 const siteHeader = document.getElementById("siteHeader");
 const cursorGlow = document.getElementById("cursorGlow");
+const currentYear = document.getElementById("currentYear");
 
-const portfolioData = Array.isArray(window.portfolioData)
-  ? window.portfolioData
+const collections = Array.isArray(
+  window.portfolioCollections
+)
+  ? window.portfolioCollections
   : [];
 
-/**
- * Converts artwork ID into a three-digit number.
- * Example: 1 becomes 001.
- */
-function formatArtworkNumber(id) {
-  return String(id).padStart(3, "0");
+function formatNumber(number) {
+  return String(number).padStart(2, "0");
 }
 
-/**
- * Renders artwork cards.
- */
-function renderArtworks(filter = "all") {
-  artworkGrid.innerHTML = "";
-
-  const filteredArtworks =
-    filter === "all"
-      ? portfolioData
-      : portfolioData.filter(
-          (artwork) => artwork.category === filter
-        );
-
-  if (filteredArtworks.length === 0) {
-    artworkGrid.innerHTML = `
-      <p class="empty-message">
-        No artwork has been added to this category yet.
-      </p>
-    `;
-
+function renderCollectionNavigation() {
+  if (!collectionNavigation) {
     return;
   }
 
-  filteredArtworks.forEach((artwork) => {
-    const card = document.createElement("article");
+  collectionNavigation.innerHTML = collections
+    .map((collection, index) => {
+      return `
+        <a href="#collection-${collection.id}">
+          <span>${formatNumber(index + 1)}</span>
+          ${collection.shortTitle}
+        </a>
+      `;
+    })
+    .join("");
+}
 
-    card.className = "artwork-card";
-    card.tabIndex = 0;
-    card.setAttribute("role", "button");
-    card.setAttribute(
-      "aria-label",
-      `View ${artwork.title}`
+function renderCollections() {
+  if (!collectionsContainer) {
+    return;
+  }
+
+  collectionsContainer.innerHTML = collections
+    .map((collection, collectionIndex) => {
+      const artworkCards = collection.artworks
+        .map((artwork, artworkIndex) => {
+          return `
+            <article
+              class="collection-artwork"
+              tabindex="0"
+              role="button"
+              data-collection-index="${collectionIndex}"
+              data-artwork-index="${artworkIndex}"
+              aria-label="Open ${artwork.title}"
+            >
+              <div class="collection-artwork-image">
+                <img
+                  src="${artwork.image}"
+                  alt="${artwork.title}"
+                  loading="lazy"
+                >
+              </div>
+
+              <div class="collection-artwork-overlay">
+                <span class="collection-artwork-number">
+                  ${formatNumber(artworkIndex + 1)}
+                </span>
+
+                <div class="collection-artwork-info">
+                  <h3>${artwork.title}</h3>
+                  <p>${collection.title}</p>
+                </div>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+
+      return `
+        <section
+          class="art-collection"
+          id="collection-${collection.id}"
+        >
+          <header class="collection-header">
+            <div class="collection-index">
+              ${formatNumber(collectionIndex + 1)}
+            </div>
+
+            <div class="collection-heading">
+              <div>
+                <h2>${collection.title}</h2>
+                <p class="collection-description">
+                  ${collection.description}
+                </p>
+              </div>
+
+              <p class="collection-count">
+                ${collection.artworks.length}
+                ${
+                  collection.artworks.length === 1
+                    ? "Work"
+                    : "Works"
+                }
+              </p>
+            </div>
+          </header>
+
+          <div class="collection-grid">
+            ${artworkCards}
+          </div>
+        </section>
+      `;
+    })
+    .join("");
+
+  attachArtworkEvents();
+}
+
+function attachArtworkEvents() {
+  const artworkCards = document.querySelectorAll(
+    ".collection-artwork"
+  );
+
+  artworkCards.forEach((card) => {
+    const collectionIndex = Number(
+      card.dataset.collectionIndex
     );
 
-    card.innerHTML = `
-      <div class="artwork-image">
-        <img
-          src="${artwork.image}"
-          alt="${artwork.title}"
-          loading="lazy"
-        >
-      </div>
+    const artworkIndex = Number(
+      card.dataset.artworkIndex
+    );
 
-      <div class="artwork-overlay">
-        <span class="artwork-number">
-          ${formatArtworkNumber(artwork.id)}
-        </span>
-
-        <div class="artwork-info">
-          <h3>${artwork.title}</h3>
-
-          <div class="artwork-meta">
-            <span>${artwork.categoryLabel}</span>
-            <span>${artwork.year}</span>
-          </div>
-        </div>
-      </div>
-    `;
+    const collection = collections[collectionIndex];
+    const artwork = collection.artworks[artworkIndex];
 
     card.addEventListener("click", () => {
-      openLightbox(artwork);
+      openLightbox(
+        artwork,
+        collection,
+        artworkIndex
+      );
     });
 
     card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
         event.preventDefault();
-        openLightbox(artwork);
+
+        openLightbox(
+          artwork,
+          collection,
+          artworkIndex
+        );
       }
     });
-
-    artworkGrid.appendChild(card);
   });
 }
 
-/**
- * Opens artwork lightbox.
- */
-function openLightbox(artwork) {
+function openLightbox(
+  artwork,
+  collection,
+  artworkIndex
+) {
+  if (!lightbox) {
+    return;
+  }
+
   lightboxImage.src = artwork.image;
   lightboxImage.alt = artwork.title;
 
   lightboxTitle.textContent = artwork.title;
-
-  lightboxCategory.textContent =
-    `${artwork.categoryLabel} / ${artwork.year}`;
-
-  lightboxDescription.textContent = artwork.description;
+  lightboxCategory.textContent = collection.title;
+  lightboxDescription.textContent =
+    artwork.description;
 
   lightboxNumber.textContent =
-    `PROJECT ${formatArtworkNumber(artwork.id)}`;
+    `ARTWORK ${formatNumber(artworkIndex + 1)}`;
 
   lightbox.classList.add("open");
   lightbox.setAttribute("aria-hidden", "false");
 
   document.body.classList.add("lightbox-open");
 
-  lightboxClose.focus();
+  lightboxClose?.focus();
 }
 
-/**
- * Closes artwork lightbox.
- */
 function closeLightbox() {
+  if (!lightbox) {
+    return;
+  }
+
   lightbox.classList.remove("open");
   lightbox.setAttribute("aria-hidden", "true");
 
@@ -141,29 +219,12 @@ function closeLightbox() {
   lightboxImage.src = "";
 }
 
-/**
- * Handles artwork category filtering.
- */
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach((item) => {
-      item.classList.remove("active");
-    });
+lightboxClose?.addEventListener(
+  "click",
+  closeLightbox
+);
 
-    button.classList.add("active");
-
-    const filter = button.dataset.filter;
-
-    renderArtworks(filter);
-  });
-});
-
-/**
- * Lightbox controls.
- */
-lightboxClose.addEventListener("click", closeLightbox);
-
-lightbox.addEventListener("click", (event) => {
+lightbox?.addEventListener("click", (event) => {
   if (event.target === lightbox) {
     closeLightbox();
   }
@@ -172,16 +233,13 @@ lightbox.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (
     event.key === "Escape" &&
-    lightbox.classList.contains("open")
+    lightbox?.classList.contains("open")
   ) {
     closeLightbox();
   }
 });
 
-/**
- * Mobile navigation.
- */
-menuToggle.addEventListener("click", () => {
+menuToggle?.addEventListener("click", () => {
   const isOpen = mainNav.classList.toggle("open");
 
   menuToggle.setAttribute(
@@ -195,7 +253,7 @@ menuToggle.addEventListener("click", () => {
   );
 });
 
-mainNav.querySelectorAll("a").forEach((link) => {
+mainNav?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     mainNav.classList.remove("open");
 
@@ -204,23 +262,19 @@ mainNav.querySelectorAll("a").forEach((link) => {
       "false"
     );
 
-    document.body.classList.remove("lightbox-open");
+    document.body.classList.remove(
+      "lightbox-open"
+    );
   });
 });
 
-/**
- * Header style while scrolling.
- */
 window.addEventListener("scroll", () => {
-  siteHeader.classList.toggle(
+  siteHeader?.classList.toggle(
     "scrolled",
     window.scrollY > 40
   );
 });
 
-/**
- * Cursor glow effect.
- */
 window.addEventListener("mousemove", (event) => {
   if (!cursorGlow) {
     return;
@@ -230,13 +284,10 @@ window.addEventListener("mousemove", (event) => {
   cursorGlow.style.top = `${event.clientY}px`;
 });
 
-/**
- * Footer year.
- */
-document.getElementById("currentYear").textContent =
-  new Date().getFullYear();
+if (currentYear) {
+  currentYear.textContent =
+    new Date().getFullYear();
+}
 
-/**
- * Initial render.
- */
-renderArtworks();
+renderCollectionNavigation();
+renderCollections();
