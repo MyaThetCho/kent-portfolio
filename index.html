@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Kent — Digital Artist, Illustrator and Visual Designer."
+  >
+
+  <title>Kent — Digital Artist & Illustrator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Decorative cursor glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <a href="#home" class="brand">
+      KENT<span class="brand-dot">.</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#about">About</a>
+      <a href="#works">Works</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-grid"></div>
+
+      <div class="hero-top-label">
+        <span>PORTFOLIO / 2026</span>
+        <span>MYANMAR — ROME</span>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Digital Artist · Illustrator · Visual Designer</p>
+
+          <h1>
+            KENT
+            <span>CREATES</span>
+          </h1>
+
+          <p class="hero-description">
+            Creating expressive illustrations, visual identities,
+            social-media designs and imaginative artistic worlds.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#works" class="button button-primary">
+              Explore Works
+            </a>
+
+            <a href="#contact" class="button button-outline">
+              Work Together
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="hero-number">001</div>
+
+          <div class="hero-image-frame">
+            <img
+              src="assets/artworks/digital-01.jpg"
+              alt="Featured artwork by Kent"
+            >
+          </div>
+
+          <div class="hero-art-meta">
+            <span>FEATURED WORK</span>
+            <span>DIGITAL ART</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          DIGITAL ART — ILLUSTRATION — BRANDING — COMICS —
+          DIGITAL ART — ILLUSTRATION — BRANDING — COMICS —
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about-section" id="about">
+      <div class="section-index">02 / ABOUT</div>
+
+      <div class="about-layout">
+        <div class="about-title-block">
+          <p class="eyebrow">Meet the artist</p>
+
+          <h2>
+            HELLO,
+            <span>I’M KENT.</span>
+          </h2>
+
+          <div class="profile-frame">
+            <img
+              src="assets/profile/kent-profile.jpg"
+              alt="Kent, digital artist and illustrator"
+            >
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="about-lead">
+            I am a digital artist and illustrator creating visual work
+            across illustration, social media, branding, comics and
+            traditional art.
+          </p>
+
+          <p>
+            With professional experience as a digital artist and as a
+            Digital Art Team Leader, I enjoy combining storytelling,
+            expressive composition and experimental visual styles.
+          </p>
+
+          <p>
+            My work includes mascot design, campaign visuals, social-media
+            content, logo design, traditional drawing and digital painting.
+          </p>
+
+          <div class="about-details">
+            <div>
+              <span class="detail-label">Based in</span>
+              <strong>Rome / Myanmar</strong>
+            </div>
+
+            <div>
+              <span class="detail-label">Experience</span>
+              <strong>2+ Years</strong>
+            </div>
+
+            <div>
+              <span class="detail-label">Status</span>
+              <strong class="status-open">Available</strong>
+            </div>
+
+            <div>
+              <span class="detail-label">Focus</span>
+              <strong>Art & Visual Design</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section class="section works-section" id="works">
+      <div class="section-index">03 / SELECTED WORKS</div>
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Portfolio archive</p>
+
+          <h2>
+            SELECTED
+            <span>WORKS</span>
+          </h2>
+        </div>
+
+        <p>
+          A selection of digital paintings, traditional artworks,
+          commercial designs and visual identity projects.
+        </p>
+      </div>
+
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-button active" data-filter="all">
+          All
+        </button>
+
+        <button class="filter-button" data-filter="digital">
+          Digital Art
+        </button>
+
+        <button class="filter-button" data-filter="traditional">
+          Traditional
+        </button>
+
+        <button class="filter-button" data-filter="social">
+          Social Media
+        </button>
+
+        <button class="filter-button" data-filter="logo">
+          Logo Design
+        </button>
+
+        <button class="filter-button" data-filter="other">
+          Other Projects
+        </button>
+      </div>
+
+      <div class="artwork-grid" id="artworkGrid">
+        <!-- Generated from data.js -->
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section experience-section" id="experience">
+      <div class="section-index">04 / EXPERIENCE</div>
+
+      <div class="experience-layout">
+        <div class="experience-heading">
+          <p class="eyebrow">Professional history</p>
+
+          <h2>
+            CREATIVE
+            <span>EXPERIENCE</span>
+          </h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-year">2023–2025</div>
+
+            <div class="timeline-content">
+              <p class="timeline-number">01</p>
+
+              <h3>Digital Art Team Leader</h3>
+
+              <p class="timeline-company">
+                HOPE Mental Health and Psychosocial Support
+              </p>
+
+              <p>
+                Led digital-art activities and supported the creation
+                of illustrations, mascots and visual communication
+                materials.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-year">2023–2024</div>
+
+            <div class="timeline-content">
+              <p class="timeline-number">02</p>
+
+              <h3>Digital Artist</h3>
+
+              <p class="timeline-company">Days with Sar Lone</p>
+
+              <p>
+                Produced digital artwork, illustrations and creative
+                visual content for online audiences.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section skills-section">
+      <div class="section-index">05 / SKILLS</div>
+
+      <div class="skills-layout">
+        <div>
+          <p class="eyebrow">Creative capabilities</p>
+
+          <h2>
+            TOOLS &
+            <span>SKILLS</span>
+          </h2>
+        </div>
+
+        <div class="skill-groups">
+          <div class="skill-group">
+            <h3>Creative Skills</h3>
+
+            <div class="skill-tags">
+              <span>Digital Painting</span>
+              <span>Illustration</span>
+              <span>Typography</span>
+              <span>Layout Design</span>
+              <span>Comic Drawing</span>
+              <span>Logo Design</span>
+              <span>Social Media Design</span>
+              <span>Watercolour</span>
+              <span>Ink Drawing</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Software</h3>
+
+            <div class="skill-tags">
+              <span>Adobe Photoshop</span>
+              <span>Adobe Illustrator</span>
+              <span>ibisPaint</span>
+              <span>Lightroom</span>
+              <span>Canva</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Languages</h3>
+
+            <div class="skill-tags">
+              <span>English</span>
+              <span>Japanese</span>
+              <span>Italian</span>
+              <span>Myanmar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+      <div class="contact-background-text">
+        TOGETHER
+      </div>
+
+      <div class="contact-content">
+        <p class="eyebrow">Have a creative project?</p>
+
+        <h2>
+          LET’S MAKE
+          <span>SOMETHING</span>
+          TOGETHER.
+        </h2>
+
+        <a
+          href="mailto:kyalsinaung234@gmail.com"
+          class="contact-email"
+        >
+          kyalsinaung234@gmail.com
+        </a>
+
+        <div class="contact-links">
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            Instagram
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            Behance
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            ArtStation
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            Telegram
+          </a>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <span>© <span id="currentYear"></span> Kent</span>
+        <span>Digital Artist & Illustrator</span>
+        <a href="#home">Back to top ↑</a>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- Artwork lightbox -->
+  <div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+  >
+    <button
+      class="lightbox-close"
+      id="lightboxClose"
+      aria-label="Close artwork viewer"
+    >
+      ×
+    </button>
+
+    <div class="lightbox-content">
+      <div class="lightbox-image-wrapper">
+        <img id="lightboxImage" src="" alt="">
+      </div>
+
+      <div class="lightbox-info">
+        <p class="lightbox-number" id="lightboxNumber"></p>
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxCategory"></p>
+        <p id="lightboxDescription"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
