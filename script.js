@@ -242,9 +242,18 @@ document.addEventListener("keydown", (event) => {
 menuToggle?.addEventListener("click", () => {
   const isOpen = mainNav.classList.toggle("open");
 
+  menuToggle.classList.toggle("active", isOpen);
+
   menuToggle.setAttribute(
     "aria-expanded",
     String(isOpen)
+  );
+
+  menuToggle.setAttribute(
+    "aria-label",
+    isOpen
+      ? "Close navigation menu"
+      : "Open navigation menu"
   );
 
   document.body.classList.toggle(
@@ -256,10 +265,16 @@ menuToggle?.addEventListener("click", () => {
 mainNav?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     mainNav.classList.remove("open");
+    menuToggle.classList.remove("active");
 
     menuToggle.setAttribute(
       "aria-expanded",
       "false"
+    );
+
+    menuToggle.setAttribute(
+      "aria-label",
+      "Open navigation menu"
     );
 
     document.body.classList.remove(

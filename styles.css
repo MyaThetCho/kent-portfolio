@@ -1355,3 +1355,195 @@ button {
     opacity: 1;
   }
 }
+
+
+
+@media (max-width: 950px) {
+  .menu-toggle span {
+    transform-origin: center;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .menu-toggle.active span:first-child {
+    transform: translateY(4.5px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:last-child {
+    transform: translateY(-4.5px) rotate(-45deg);
+  }
+}
+
+
+/* ========================================
+   EDITORIAL MOBILE MENU
+======================================== */
+
+@media (max-width: 950px) {
+  .site-header,
+  .site-header.scrolled {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .main-nav {
+    background:
+      linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.18),
+        transparent 42%
+      ),
+      var(--red);
+
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    inset: 0;
+    justify-content: center;
+    opacity: 0;
+    overflow: hidden;
+    padding: 110px 28px 50px;
+    pointer-events: none;
+    position: fixed;
+    transform: translateY(-100%);
+    transition:
+      opacity 0.35s ease,
+      transform 0.45s cubic-bezier(.2, .8, .2, 1);
+    visibility: hidden;
+    width: 100vw;
+    z-index: 101;
+  }
+
+  .main-nav::before {
+    color: rgba(255, 255, 255, 0.11);
+    content: "KENT";
+    font-family: var(--font-display);
+    font-size: 34vw;
+    left: -4vw;
+    letter-spacing: -0.09em;
+    line-height: 0.8;
+    position: absolute;
+    top: 90px;
+    transform: rotate(-90deg) translateX(-100%);
+    transform-origin: top left;
+    white-space: nowrap;
+  }
+
+  .main-nav::after {
+    background: var(--black);
+    bottom: 0;
+    content: "";
+    height: 22%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .main-nav.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .main-nav a {
+    align-items: baseline;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    color: var(--white);
+    display: flex;
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 10vw, 4.6rem);
+    justify-content: space-between;
+    letter-spacing: -0.06em;
+    line-height: 0.95;
+    padding: 18px 0;
+    position: relative;
+    text-align: left;
+    text-transform: uppercase;
+    transition:
+      color 0.25s ease,
+      padding-left 0.25s ease;
+    z-index: 2;
+  }
+
+  .main-nav a::before {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    margin-right: 18px;
+  }
+
+  .main-nav a:nth-child(1)::before {
+    content: "01";
+  }
+
+  .main-nav a:nth-child(2)::before {
+    content: "02";
+  }
+
+  .main-nav a:nth-child(3)::before {
+    content: "03";
+  }
+
+  .main-nav a:nth-child(4)::before {
+    content: "04";
+  }
+
+  .main-nav a:nth-child(even) {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--white);
+  }
+
+  .main-nav a:hover {
+    color: var(--black);
+    padding-left: 12px;
+    -webkit-text-stroke: 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: relative;
+    z-index: 103;
+  }
+
+  .menu-toggle span {
+    transform-origin: center;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .menu-toggle.active span:first-child {
+    transform: translateY(4.5px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:last-child {
+    transform: translateY(-4.5px) rotate(-45deg);
+  }
+}
+
+
+
+
+
+@media (max-width: 950px) {
+  .mobile-menu-meta {
+    bottom: 38px;
+    display: flex;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    justify-content: space-between;
+    left: 28px;
+    letter-spacing: 0.08em;
+    position: absolute;
+    right: 28px;
+    text-transform: uppercase;
+    z-index: 3;
+  }
+
+  .mobile-menu-meta span:last-child {
+    color: var(--red);
+  }
+}
