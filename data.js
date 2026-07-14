@@ -187,86 +187,66 @@ window.portfolioCollections = [
       },
       {
         id: 13,
-        title: "Client Review 1",
-        image: "assets/social/Review_SocialMedia.png"
-      },
-      {
-        id: 14,
-        title: "Client Review 2",
-        image: "assets/social/Review2_SocialMedia.png"
-      },
-      {
-        id: 15,
-        title: "Client Review 3",
-        image: "assets/social/Review3_SocialMedia.png"
-      },
-      {
-        id: 16,
-        title: "Client Review 4",
-        image: "assets/social/Review4_SocialMedia.png"
-      },
-      {
-        id: 17,
         title: "Study in Italy",
         image: "assets/social/StudyInItaly_SocialMedia.jpg"
       },
       {
-        id: 18,
+        id: 14,
         title: "TFW Cover",
         image: "assets/social/TFW Cover_SocialMedia.png"
       },
       {
-        id: 19,
+        id: 15,
         title: "TFW Enrollment 1",
         image: "assets/social/TFW Enrollment 1.1_SocialMedia.png"
       },
       {
-        id: 20,
+        id: 16,
         title: "TFW Enrollment 2",
         image: "assets/social/TFW Enrollment 2_SocialMedia.png"
       },
       {
-        id: 21,
+        id: 17,
         title: "TFW Enrollment 3",
         image: "assets/social/TFW Enrollment 3_SocialMedia.png"
       },
       {
-        id: 22,
+        id: 18,
         title: "TFW Enrollment 4",
         image: "assets/social/TFW Enrollment 4_SocialMedia.png"
       },
       {
-        id: 23,
+        id: 19,
         title: "TFW Free Trial Reminder",
         image: "assets/social/TFW Free Trial Reminder_SocialMedia.jpg"
       },
       {
-        id: 24,
+        id: 20,
         title: "TFW Introduction",
         image: "assets/social/TFW Intro_SocialMedia.jpg"
       },
       {
-        id: 25,
+        id: 21,
         title: "TFW Reminder",
         image: "assets/social/TFW Reminder_SocialMedia.png"
       },
       {
-        id: 26,
+        id: 22,
         title: "TFW Scholarship",
         image: "assets/social/TFW Scholarship_SocialMedia.png"
       },
       {
-        id: 27,
+        id: 23,
         title: "TFW Teacher Introduction",
         image: "assets/social/TFW Tr Intro 1 copy_SocialMedia.png"
       },
       {
-        id: 28,
+        id: 24,
         title: "TFW Trial Class",
         image: "assets/social/TFW Trial Class._SocialMedia.png"
       },
       {
-        id: 29,
+        id: 25,
         title: "TFW Payment Information",
         image: "assets/social/TFW payment_SocialMedia.png"
       }
