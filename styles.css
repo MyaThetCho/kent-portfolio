@@ -1872,3 +1872,72 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
+
+
+
+
+
+
+/* ========================================
+   MOBILE COLLECTION TITLE FIX
+======================================== */
+
+@media (max-width: 650px) {
+  .collection-header {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding-bottom: 28px;
+  }
+
+  .collection-index {
+    display: block;
+    font-size: clamp(3.5rem, 18vw, 5.5rem);
+    line-height: 0.85;
+    margin-bottom: 28px;
+    width: 100%;
+  }
+
+  .collection-heading {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .collection-heading > div {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .collection-heading h2 {
+    font-size: clamp(2.4rem, 12vw, 4.2rem);
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .collection-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-top: 20px;
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .collection-count {
+    display: block;
+    margin-top: 18px;
+  }
+}
+
+
+
+
+.collection-heading,
+.collection-heading h2,
+.collection-description {
+  min-width: 0;
+}
