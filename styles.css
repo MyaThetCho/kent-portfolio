@@ -1146,7 +1146,7 @@ button {
 }
 
 .art-collection {
-  margin-bottom: 150px;
+  margin-bottom: clamp(130px, 18vw, 240px);
   scroll-margin-top: 110px;
 }
 
@@ -1200,10 +1200,15 @@ button {
   text-transform: uppercase;
 }
 
+/* ========================================
+   EDITORIAL COLLECTION GRID
+======================================== */
+
 .collection-grid {
   display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(14px, 2vw, 28px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-flow: dense;
 }
 
 .collection-artwork {
@@ -1213,20 +1218,64 @@ button {
   position: relative;
 }
 
-.collection-artwork:nth-child(7n + 1) {
-  grid-column: span 7;
+/* Large landscape artwork */
+
+.collection-artwork:nth-child(10n + 1) {
+  grid-column: span 8;
 }
 
-.collection-artwork:nth-child(7n + 2) {
+/* Tall portrait artwork */
+
+.collection-artwork:nth-child(10n + 2) {
+  grid-column: span 4;
+}
+
+/* Medium portrait artwork */
+
+.collection-artwork:nth-child(10n + 3) {
   grid-column: span 5;
 }
 
-.collection-artwork:nth-child(7n + 5) {
-  grid-column: span 5;
+/* Wide artwork */
+
+.collection-artwork:nth-child(10n + 4) {
+  grid-column: span 7;
 }
 
-.collection-artwork:nth-child(7n + 6) {
-  grid-column: span 7;
+/* Small editorial artwork */
+
+.collection-artwork:nth-child(10n + 5) {
+  grid-column: 2 / span 4;
+}
+
+/* Large offset artwork */
+
+.collection-artwork:nth-child(10n + 6) {
+  grid-column: 6 / span 7;
+}
+
+/* Standard artwork */
+
+.collection-artwork:nth-child(10n + 7) {
+  grid-column: span 4;
+}
+
+/* Central feature artwork */
+
+.collection-artwork:nth-child(10n + 8) {
+  grid-column: span 8;
+}
+
+/* Wide ending artwork */
+
+.collection-artwork:nth-child(10n + 9) {
+  grid-column: 2 / span 7;
+}
+
+/* Final smaller artwork */
+
+.collection-artwork:nth-child(10n) {
+  grid-column: 9 / span 4;
 }
 
 .collection-artwork-image {
@@ -1235,15 +1284,76 @@ button {
   overflow: hidden;
 }
 
-.collection-artwork:nth-child(5n + 2)
+/* Hero-like landscape */
+
+.collection-artwork:nth-child(10n + 1)
+.collection-artwork-image {
+  aspect-ratio: 16 / 9;
+}
+
+/* Tall portrait */
+
+.collection-artwork:nth-child(10n + 2)
+.collection-artwork-image {
+  aspect-ratio: 3 / 4;
+}
+
+/* Artistic portrait */
+
+.collection-artwork:nth-child(10n + 3)
 .collection-artwork-image {
   aspect-ratio: 4 / 5;
 }
 
-.collection-artwork:nth-child(6n + 1)
+/* Cinematic wide */
+
+.collection-artwork:nth-child(10n + 4)
 .collection-artwork-image {
   aspect-ratio: 16 / 10;
 }
+
+/* Square detail */
+
+.collection-artwork:nth-child(10n + 5)
+.collection-artwork-image {
+  aspect-ratio: 1 / 1;
+}
+
+/* Large horizontal */
+
+.collection-artwork:nth-child(10n + 6)
+.collection-artwork-image {
+  aspect-ratio: 3 / 2;
+}
+
+/* Vertical card */
+
+.collection-artwork:nth-child(10n + 7)
+.collection-artwork-image {
+  aspect-ratio: 4 / 5;
+}
+
+/* Main feature */
+
+.collection-artwork:nth-child(10n + 8)
+.collection-artwork-image {
+  aspect-ratio: 16 / 10;
+}
+
+/* Editorial landscape */
+
+.collection-artwork:nth-child(10n + 9)
+.collection-artwork-image {
+  aspect-ratio: 3 / 2;
+}
+
+/* Final portrait */
+
+.collection-artwork:nth-child(10n)
+.collection-artwork-image {
+  aspect-ratio: 3 / 4;
+}
+
 
 .collection-artwork-image img {
   height: 100%;
@@ -1318,41 +1428,35 @@ button {
   .collection-artwork:nth-child(n) {
     grid-column: span 6;
   }
+
+  .collection-artwork:nth-child(4n + 1) {
+  grid-column: span 12;
+  }
 }
 
 /* Collections mobile */
 
 @media (max-width: 650px) {
-  .collection-navigation {
-    margin-bottom: 80px;
-  }
-
-  .art-collection {
-    margin-bottom: 100px;
-  }
-
-  .collection-header {
-    align-items: start;
-    grid-template-columns: 1fr;
-  }
-
-  .collection-index {
-    font-size: 3.5rem;
-  }
-
-  .collection-heading {
-    align-items: start;
-    flex-direction: column;
-    gap: 14px;
+    .collection-grid {
+    gap: 16px;
   }
 
   .collection-artwork,
   .collection-artwork:nth-child(n) {
-    grid-column: span 12;
+    grid-column: 1 / -1;
   }
 
-  .collection-artwork-overlay {
-    opacity: 1;
+  .collection-artwork-image,
+  .collection-artwork:nth-child(n)
+  .collection-artwork-image {
+    aspect-ratio: auto;
+  }
+
+  .collection-artwork-image img {
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    width: 100%;
   }
 }
 
@@ -1546,4 +1650,27 @@ button {
   .mobile-menu-meta span:last-child {
     color: var(--red);
   }
+}
+
+
+
+
+.contact-links .product-link {
+  border: 1px solid var(--red);
+  color: var(--red);
+  padding: 10px 14px;
+}
+
+.contact-links .product-link:hover {
+  background: var(--red);
+  color: var(--white);
+}
+
+
+.contact-description {
+  color: var(--gray);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: 35px;
+  max-width: 540px;
 }
