@@ -1,0 +1,9 @@
+v1.1 — Responsive typography, spacing, gallery layouts, image fitting
+v1.2 — Hero, scroll, artwork and lightbox animations
+v1.3 — Progress bar, custom cursor, animated numbers, marquee polish
+v1.4 — Commercial project, featured artwork and contact redesign
+
+
+git add .
+git commit -m "..."
+git push origin main

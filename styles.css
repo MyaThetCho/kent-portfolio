@@ -13,7 +13,9 @@
   --font-mono: "Space Mono", monospace;
 }
 
-/* Reset */
+/* ========================================
+   01. RESET & GLOBAL ELEMENTS
+======================================== */
 
 * {
   box-sizing: border-box;
@@ -22,11 +24,14 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
   background: var(--black);
+  max-width: 100%;
   color: var(--white);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -56,7 +61,9 @@ button {
   color: var(--white);
 }
 
-/* Cursor glow */
+/* ========================================
+   02. CURSOR GLOW
+======================================== */
 
 .cursor-glow {
   position: fixed;
@@ -73,7 +80,9 @@ button {
   z-index: 50;
 }
 
-/* Header */
+/* ========================================
+   03. HEADER & DESKTOP NAVIGATION
+======================================== */
 
 .site-header {
   align-items: center;
@@ -142,7 +151,9 @@ button {
   width: 28px;
 }
 
-/* General */
+/* ========================================
+   04. SHARED COMPONENTS
+======================================== */
 
 .section {
   padding: 120px 5vw;
@@ -207,7 +218,9 @@ button {
   color: var(--black);
 }
 
-/* Hero */
+/* ========================================
+   05. HERO SECTION
+======================================== */
 
 .hero {
   background:
@@ -383,7 +396,9 @@ button {
   }
 }
 
-/* About */
+/* ========================================
+   06. ABOUT SECTION
+======================================== */
 
 .about-section {
   background: var(--cream);
@@ -485,158 +500,10 @@ button {
   color: var(--green);
 }
 
-/* Works */
 
-.works-section {
-  background: var(--black);
-}
-
-.section-heading {
-  align-items: end;
-  display: flex;
-  gap: 60px;
-  justify-content: space-between;
-  margin-bottom: 60px;
-}
-
-.section-heading > p {
-  color: var(--gray);
-  line-height: 1.7;
-  max-width: 420px;
-}
-
-.filter-bar {
-  border-bottom: 1px solid var(--line);
-  border-top: 1px solid var(--line);
-  display: flex;
-  gap: 10px;
-  margin-bottom: 50px;
-  overflow-x: auto;
-  padding: 15px 0;
-}
-
-.filter-button {
-  background: transparent;
-  border: 1px solid var(--line);
-  cursor: pointer;
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.07em;
-  padding: 12px 18px;
-  text-transform: uppercase;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.filter-button:hover,
-.filter-button.active {
-  background: var(--red);
-  border-color: var(--red);
-}
-
-.artwork-grid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(12, 1fr);
-}
-
-.artwork-card {
-  cursor: pointer;
-  grid-column: span 4;
-  overflow: hidden;
-  position: relative;
-}
-
-.artwork-card:nth-child(6n + 1),
-.artwork-card:nth-child(6n + 5) {
-  grid-column: span 7;
-}
-
-.artwork-card:nth-child(6n + 2),
-.artwork-card:nth-child(6n + 6) {
-  grid-column: span 5;
-}
-
-.artwork-image {
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-}
-
-.artwork-card:nth-child(3n + 1) .artwork-image {
-  aspect-ratio: 16 / 10;
-}
-
-.artwork-card:nth-child(3n + 2) .artwork-image {
-  aspect-ratio: 4 / 5;
-}
-
-.artwork-image img {
-  height: 100%;
-  object-fit: cover;
-  transition:
-    filter 0.45s ease,
-    transform 0.7s cubic-bezier(.2,.7,.2,1);
-}
-
-.artwork-card:hover img {
-  filter: saturate(1.1);
-  transform: scale(1.055);
-}
-
-.artwork-overlay {
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.92),
-    rgba(0,0,0,0.05) 65%
-  );
-  inset: 0;
-  opacity: 0;
-  padding: 24px;
-  position: absolute;
-  transition: opacity 0.3s ease;
-}
-
-.artwork-card:hover .artwork-overlay {
-  opacity: 1;
-}
-
-.artwork-number {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  position: absolute;
-  right: 22px;
-  top: 20px;
-}
-
-.artwork-info {
-  bottom: 22px;
-  left: 22px;
-  position: absolute;
-  right: 22px;
-}
-
-.artwork-info h3 {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.3vw, 2.5rem);
-  letter-spacing: -0.05em;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-
-.artwork-meta {
-  display: flex;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  gap: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* Experience */
-
+/* ========================================
+   06. EXPERIENCE SECTION
+======================================== */
 .experience-section {
   background: var(--red);
 }
@@ -695,8 +562,10 @@ button {
   max-width: 650px;
 }
 
-/* Skills */
 
+/* ========================================
+   07. SKILLS SECTION
+======================================== */
 .skills-section {
   background: var(--cream);
   color: var(--black);
@@ -740,8 +609,10 @@ button {
   color: var(--white);
 }
 
-/* Contact */
 
+/* ========================================
+   08. CONTACT & FOOTER
+======================================== */
 .contact-section {
   background: var(--black);
   min-height: 92vh;
@@ -827,8 +698,10 @@ button {
   z-index: 2;
 }
 
-/* Lightbox */
 
+/* ========================================
+   09. ARTWORK LIGHTBOX
+======================================== */
 .lightbox {
   align-items: center;
   background: rgba(0,0,0,0.96);
@@ -908,168 +781,6 @@ button {
   color: #c7c7c7;
   line-height: 1.75;
 }
-
-/* Responsive */
-
-@media (max-width: 950px) {
-  .cursor-glow {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: flex;
-    position: relative;
-    z-index: 102;
-  }
-
-  .main-nav {
-    align-items: center;
-    background: var(--red);
-    display: flex;
-    flex-direction: column;
-    inset: 0;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    position: fixed;
-    transform: translateY(-20px);
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
-    z-index: 101;
-  }
-
-  .main-nav.open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  .main-nav a {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 9vw, 5rem);
-  }
-
-  .hero-content,
-  .about-layout,
-  .experience-layout,
-  .skills-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-content {
-    padding-top: 100px;
-  }
-
-  .hero-copy h1 {
-    font-size: clamp(4.2rem, 18vw, 8rem);
-  }
-
-  .hero-art {
-    margin: 30px auto 0;
-    max-width: 680px;
-    width: 100%;
-  }
-
-  .about-content {
-    padding-top: 20px;
-  }
-
-  .section-heading {
-    align-items: start;
-    flex-direction: column;
-  }
-
-  .artwork-card,
-  .artwork-card:nth-child(n) {
-    grid-column: span 6;
-  }
-
-  .lightbox-content {
-    grid-template-columns: 1fr;
-    overflow-y: auto;
-  }
-
-  .lightbox-image-wrapper img {
-    max-height: 58vh;
-  }
-}
-
-@media (max-width: 650px) {
-  .site-header {
-    padding: 20px;
-  }
-
-  .hero,
-  .section,
-  .contact-section {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .hero {
-    padding-top: 100px;
-  }
-
-  .hero-top-label span:last-child {
-    display: none;
-  }
-
-  .hero-copy h1 span {
-    -webkit-text-stroke-width: 1px;
-  }
-
-  .section {
-    padding-bottom: 85px;
-    padding-top: 85px;
-  }
-
-  .section-index {
-    margin-bottom: 45px;
-  }
-
-  .about-details {
-    grid-template-columns: 1fr;
-  }
-
-  .artwork-card,
-  .artwork-card:nth-child(n) {
-    grid-column: span 12;
-  }
-
-  .artwork-overlay {
-    background: linear-gradient(
-      to top,
-      rgba(0,0,0,0.88),
-      transparent
-    );
-    opacity: 1;
-  }
-
-  .timeline-item {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-content h2 {
-    font-size: clamp(3.8rem, 17vw, 7rem);
-  }
-
-  .site-footer {
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .lightbox {
-    padding: 75px 20px 30px;
-  }
-
-  .lightbox-close {
-    right: 15px;
-    top: 15px;
-  }
-}
-
-
 
 
 /* ========================================
@@ -1200,160 +911,8 @@ button {
   text-transform: uppercase;
 }
 
-/* ========================================
-   EDITORIAL COLLECTION GRID
-======================================== */
 
-.collection-grid {
-  display: grid;
-  gap: clamp(14px, 2vw, 28px);
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-auto-flow: dense;
-}
-
-.collection-artwork {
-  cursor: pointer;
-  grid-column: span 4;
-  overflow: hidden;
-  position: relative;
-}
-
-/* Large landscape artwork */
-
-.collection-artwork:nth-child(10n + 1) {
-  grid-column: span 8;
-}
-
-/* Tall portrait artwork */
-
-.collection-artwork:nth-child(10n + 2) {
-  grid-column: span 4;
-}
-
-/* Medium portrait artwork */
-
-.collection-artwork:nth-child(10n + 3) {
-  grid-column: span 5;
-}
-
-/* Wide artwork */
-
-.collection-artwork:nth-child(10n + 4) {
-  grid-column: span 7;
-}
-
-/* Small editorial artwork */
-
-.collection-artwork:nth-child(10n + 5) {
-  grid-column: 2 / span 4;
-}
-
-/* Large offset artwork */
-
-.collection-artwork:nth-child(10n + 6) {
-  grid-column: 6 / span 7;
-}
-
-/* Standard artwork */
-
-.collection-artwork:nth-child(10n + 7) {
-  grid-column: span 4;
-}
-
-/* Central feature artwork */
-
-.collection-artwork:nth-child(10n + 8) {
-  grid-column: span 8;
-}
-
-/* Wide ending artwork */
-
-.collection-artwork:nth-child(10n + 9) {
-  grid-column: 2 / span 7;
-}
-
-/* Final smaller artwork */
-
-.collection-artwork:nth-child(10n) {
-  grid-column: 9 / span 4;
-}
-
-.collection-artwork-image {
-  aspect-ratio: 4 / 3;
-  background: var(--black-soft);
-  overflow: hidden;
-}
-
-/* Hero-like landscape */
-
-.collection-artwork:nth-child(10n + 1)
-.collection-artwork-image {
-  aspect-ratio: 16 / 9;
-}
-
-/* Tall portrait */
-
-.collection-artwork:nth-child(10n + 2)
-.collection-artwork-image {
-  aspect-ratio: 3 / 4;
-}
-
-/* Artistic portrait */
-
-.collection-artwork:nth-child(10n + 3)
-.collection-artwork-image {
-  aspect-ratio: 4 / 5;
-}
-
-/* Cinematic wide */
-
-.collection-artwork:nth-child(10n + 4)
-.collection-artwork-image {
-  aspect-ratio: 16 / 10;
-}
-
-/* Square detail */
-
-.collection-artwork:nth-child(10n + 5)
-.collection-artwork-image {
-  aspect-ratio: 1 / 1;
-}
-
-/* Large horizontal */
-
-.collection-artwork:nth-child(10n + 6)
-.collection-artwork-image {
-  aspect-ratio: 3 / 2;
-}
-
-/* Vertical card */
-
-.collection-artwork:nth-child(10n + 7)
-.collection-artwork-image {
-  aspect-ratio: 4 / 5;
-}
-
-/* Main feature */
-
-.collection-artwork:nth-child(10n + 8)
-.collection-artwork-image {
-  aspect-ratio: 16 / 10;
-}
-
-/* Editorial landscape */
-
-.collection-artwork:nth-child(10n + 9)
-.collection-artwork-image {
-  aspect-ratio: 3 / 2;
-}
-
-/* Final portrait */
-
-.collection-artwork:nth-child(10n)
-.collection-artwork-image {
-  aspect-ratio: 3 / 4;
-}
-
+/* Artwork card media and overlay */
 
 .collection-artwork-image img {
   height: 100%;
@@ -1416,7 +975,147 @@ button {
   text-transform: uppercase;
 }
 
-/* Collections tablet */
+
+/* Contact details added after initial layout */
+
+
+.contact-description {
+  color: var(--gray);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: 35px;
+  max-width: 540px;
+}
+
+
+
+
+
+
+/* ========================================
+   STABLE EDITORIAL GRID FIX
+======================================== */
+
+.collections-section,
+.collections-container,
+.art-collection,
+.collection-grid,
+.collection-artwork,
+.collection-artwork-image {
+  min-width: 0;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-flow: row dense;
+  gap: clamp(14px, 1.6vw, 24px);
+  width: 100%;
+}
+
+.collection-artwork,
+.collection-artwork:nth-child(n) {
+  cursor: pointer;
+  grid-column: span 4;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Editorial pattern without forced starting columns */
+
+.collection-artwork:nth-child(8n + 1) {
+  grid-column: span 8;
+}
+
+.collection-artwork:nth-child(8n + 2) {
+  grid-column: span 4;
+}
+
+.collection-artwork:nth-child(8n + 3) {
+  grid-column: span 5;
+}
+
+.collection-artwork:nth-child(8n + 4) {
+  grid-column: span 7;
+}
+
+.collection-artwork:nth-child(8n + 5) {
+  grid-column: span 4;
+}
+
+.collection-artwork:nth-child(8n + 6) {
+  grid-column: span 8;
+}
+
+.collection-artwork:nth-child(8n + 7) {
+  grid-column: span 6;
+}
+
+.collection-artwork:nth-child(8n) {
+  grid-column: span 6;
+}
+
+/* Image proportions */
+
+.collection-artwork-image,
+.collection-artwork:nth-child(n)
+.collection-artwork-image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  width: 100%;
+}
+
+.collection-artwork:nth-child(8n + 1)
+.collection-artwork-image {
+  aspect-ratio: 16 / 9;
+}
+
+.collection-artwork:nth-child(8n + 2)
+.collection-artwork-image {
+  aspect-ratio: 3 / 4;
+}
+
+.collection-artwork:nth-child(8n + 3)
+.collection-artwork-image {
+  aspect-ratio: 4 / 5;
+}
+
+.collection-artwork:nth-child(8n + 4)
+.collection-artwork-image {
+  aspect-ratio: 16 / 10;
+}
+
+.collection-artwork:nth-child(8n + 5)
+.collection-artwork-image {
+  aspect-ratio: 1 / 1;
+}
+
+.collection-artwork:nth-child(8n + 6)
+.collection-artwork-image {
+  aspect-ratio: 16 / 9;
+}
+
+.collection-artwork:nth-child(8n + 7)
+.collection-artwork-image,
+.collection-artwork:nth-child(8n)
+.collection-artwork-image {
+  aspect-ratio: 4 / 3;
+}
+
+.collection-artwork-image img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+
+
+
+/* ========================================
+   10. RESPONSIVE — TABLET (≤ 950px)
+======================================== */
 
 @media (max-width: 950px) {
   .collections-intro {
@@ -1424,61 +1123,49 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .collection-artwork,
-  .collection-artwork:nth-child(n) {
-    grid-column: span 6;
+  .cursor-glow {
+    display: none;
   }
 
-  .collection-artwork:nth-child(4n + 1) {
-  grid-column: span 12;
-  }
-}
-
-/* Collections mobile */
-
-@media (max-width: 650px) {
-    .collection-grid {
-    gap: 16px;
+  .hero-content,
+  .about-layout,
+  .experience-layout,
+  .skills-layout {
+    grid-template-columns: 1fr;
   }
 
-  .collection-artwork,
-  .collection-artwork:nth-child(n) {
-    grid-column: 1 / -1;
+  .hero-content {
+    padding-top: 100px;
   }
 
-  .collection-artwork-image,
-  .collection-artwork:nth-child(n)
-  .collection-artwork-image {
-    aspect-ratio: auto;
+  .hero-copy h1 {
+    font-size: clamp(4.2rem, 18vw, 8rem);
   }
 
-  .collection-artwork-image img {
-    height: auto;
-    max-height: none;
-    object-fit: contain;
+  .hero-art {
+    margin: 30px auto 0;
+    max-width: 680px;
     width: 100%;
   }
+
+  .about-content {
+    padding-top: 20px;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .lightbox-content {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .lightbox-image-wrapper img {
+    max-height: 58vh;
+  }
 }
-
-
-
-@media (max-width: 950px) {
-  .menu-toggle span {
-    transform-origin: center;
-    transition:
-      transform 0.3s ease,
-      opacity 0.3s ease;
-  }
-
-  .menu-toggle.active span:first-child {
-    transform: translateY(4.5px) rotate(45deg);
-  }
-
-  .menu-toggle.active span:last-child {
-    transform: translateY(-4.5px) rotate(-45deg);
-  }
-}
-
 
 /* ========================================
    EDITORIAL MOBILE MENU
@@ -1679,123 +1366,8 @@ button {
 
 
 
-/* ========================================
-   STABLE EDITORIAL GRID FIX
-======================================== */
 
-.collections-section,
-.collections-container,
-.art-collection,
-.collection-grid,
-.collection-artwork,
-.collection-artwork-image {
-  min-width: 0;
-}
-
-.collection-grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-auto-flow: row dense;
-  gap: clamp(14px, 1.6vw, 24px);
-  width: 100%;
-}
-
-.collection-artwork,
-.collection-artwork:nth-child(n) {
-  grid-column: span 4;
-  width: 100%;
-}
-
-/* Editorial pattern without forced starting columns */
-
-.collection-artwork:nth-child(8n + 1) {
-  grid-column: span 8;
-}
-
-.collection-artwork:nth-child(8n + 2) {
-  grid-column: span 4;
-}
-
-.collection-artwork:nth-child(8n + 3) {
-  grid-column: span 5;
-}
-
-.collection-artwork:nth-child(8n + 4) {
-  grid-column: span 7;
-}
-
-.collection-artwork:nth-child(8n + 5) {
-  grid-column: span 4;
-}
-
-.collection-artwork:nth-child(8n + 6) {
-  grid-column: span 8;
-}
-
-.collection-artwork:nth-child(8n + 7) {
-  grid-column: span 6;
-}
-
-.collection-artwork:nth-child(8n) {
-  grid-column: span 6;
-}
-
-/* Image proportions */
-
-.collection-artwork-image,
-.collection-artwork:nth-child(n)
-.collection-artwork-image {
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  width: 100%;
-}
-
-.collection-artwork:nth-child(8n + 1)
-.collection-artwork-image {
-  aspect-ratio: 16 / 9;
-}
-
-.collection-artwork:nth-child(8n + 2)
-.collection-artwork-image {
-  aspect-ratio: 3 / 4;
-}
-
-.collection-artwork:nth-child(8n + 3)
-.collection-artwork-image {
-  aspect-ratio: 4 / 5;
-}
-
-.collection-artwork:nth-child(8n + 4)
-.collection-artwork-image {
-  aspect-ratio: 16 / 10;
-}
-
-.collection-artwork:nth-child(8n + 5)
-.collection-artwork-image {
-  aspect-ratio: 1 / 1;
-}
-
-.collection-artwork:nth-child(8n + 6)
-.collection-artwork-image {
-  aspect-ratio: 16 / 9;
-}
-
-.collection-artwork:nth-child(8n + 7)
-.collection-artwork-image,
-.collection-artwork:nth-child(8n)
-.collection-artwork-image {
-  aspect-ratio: 4 / 3;
-}
-
-.collection-artwork-image img {
-  display: block;
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-
-
-
+/* Responsive collection grid — tablet */
 @media (max-width: 950px) {
   .collection-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1826,6 +1398,72 @@ button {
 
 
 
+
+/* ========================================
+   11. RESPONSIVE — MOBILE (≤ 650px)
+======================================== */
+
+@media (max-width: 650px) {
+  .site-header {
+    padding: 20px;
+  }
+
+  .hero,
+  .section,
+  .contact-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero {
+    padding-top: 100px;
+  }
+
+  .hero-top-label span:last-child {
+    display: none;
+  }
+
+  .hero-copy h1 span {
+    -webkit-text-stroke-width: 1px;
+  }
+
+  .section {
+    padding-bottom: 85px;
+    padding-top: 85px;
+  }
+
+  .section-index {
+    margin-bottom: 45px;
+  }
+
+  .about-details {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-content h2 {
+    font-size: clamp(3.8rem, 17vw, 7rem);
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .lightbox {
+    padding: 75px 20px 30px;
+  }
+
+  .lightbox-close {
+    right: 15px;
+    top: 15px;
+  }
+}
+
+/* Responsive collection grid — mobile */
 @media (max-width: 650px) {
   .collections-section {
     overflow-x: hidden;
@@ -1872,6 +1510,7 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
 
 
 
@@ -1941,3 +1580,760 @@ body {
 .collection-description {
   min-width: 0;
 }
+
+
+
+
+
+
+/* ========================================
+   VERSION 1.1.1
+   RESPONSIVE TYPOGRAPHY
+======================================== */
+
+/* Hero */
+
+.hero-copy h1 {
+  font-size: clamp(4rem, 11vw, 11rem);
+  line-height: 0.78;
+}
+
+.hero-copy h1 span {
+  font-size: 0.48em;
+}
+
+/* About */
+
+.about-title-block h2 {
+  font-size: clamp(3.2rem, 7vw, 7rem);
+  line-height: 0.88;
+}
+
+/* Collections introduction */
+
+.collections-intro h2 {
+  font-size: clamp(3.4rem, 8vw, 8rem);
+  line-height: 0.84;
+}
+
+/* Individual collection headings */
+
+.collection-heading h2 {
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  line-height: 0.92;
+  max-width: 100%;
+  overflow-wrap: normal;
+}
+
+/* Experience */
+
+.experience-heading h2 {
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 0.88;
+}
+
+/* Skills */
+
+.skills-layout h2 {
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 0.88;
+}
+
+/* Contact */
+
+.contact-content h2 {
+  font-size: clamp(3.7rem, 10vw, 10rem);
+  line-height: 0.8;
+}
+
+/* Prevent text containers from overflowing */
+
+.hero-copy,
+.about-title-block,
+.collections-intro,
+.collection-heading,
+.experience-heading,
+.skills-layout,
+.contact-content {
+  min-width: 0;
+}
+
+
+/* Tablet Typography */
+
+@media (max-width: 1199px) {
+  .hero-copy h1 {
+    font-size: clamp(4rem, 12vw, 8rem);
+  }
+
+  .collection-heading h2 {
+    font-size: clamp(2.6rem, 7vw, 5rem);
+  }
+
+  .contact-content h2 {
+    font-size: clamp(4rem, 11vw, 7rem);
+  }
+}
+
+
+
+/* Mobile Typography */
+
+@media (max-width: 650px) {
+  .hero-copy h1 {
+    font-size: clamp(3.8rem, 20vw, 6.2rem);
+    letter-spacing: -0.075em;
+    line-height: 0.8;
+  }
+
+  .hero-copy h1 span {
+    font-size: 0.43em;
+    margin-top: 22px;
+  }
+
+  .about-title-block h2,
+  .experience-heading h2,
+  .skills-layout h2 {
+    font-size: clamp(2.8rem, 14vw, 4.6rem);
+    letter-spacing: -0.065em;
+  }
+
+  .collections-intro h2 {
+    font-size: clamp(2.8rem, 12vw, 4.5rem);
+    letter-spacing: -0.07em;
+  }
+
+  .collection-heading h2 {
+    font-size: clamp(2.25rem, 11vw, 3.7rem);
+    letter-spacing: -0.055em;
+    line-height: 0.94;
+    overflow-wrap: break-word;
+  }
+
+  .contact-content h2 {
+    font-size: clamp(3.4rem, 14vw, 5.8rem);
+    letter-spacing: -0.075em;
+  }
+
+  .main-nav a {
+    font-size: clamp(2.3rem, 10vw, 4rem);
+  }
+}
+
+
+
+
+
+
+/* ========================================
+   VERSION 1.1.2
+   RESPONSIVE SPACING SYSTEM
+======================================== */
+
+:root {
+  --page-padding-desktop: 5vw;
+  --page-padding-tablet: 40px;
+  --page-padding-mobile: 22px;
+
+  --section-space-desktop: 130px;
+  --section-space-tablet: 100px;
+  --section-space-mobile: 78px;
+}
+
+.section {
+  padding-left: var(--page-padding-desktop);
+  padding-right: var(--page-padding-desktop);
+  padding-bottom: var(--section-space-desktop);
+  padding-top: var(--section-space-desktop);
+}
+
+
+
+.section-index {
+  margin-bottom: clamp(42px, 5vw, 70px);
+}
+
+.section-heading,
+.collections-intro {
+  margin-bottom: clamp(50px, 6vw, 80px);
+}
+
+.about-layout,
+.experience-layout,
+.skills-layout {
+  gap: clamp(50px, 8vw, 120px);
+}
+
+
+
+
+.art-collection {
+  margin-bottom: clamp(120px, 15vw, 220px);
+}
+
+.collection-header {
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.collection-grid {
+  gap: clamp(14px, 1.6vw, 24px);
+}
+
+.collection-navigation {
+  margin-bottom: clamp(80px, 10vw, 130px);
+}
+
+
+
+
+/* TABLET LAYOUT — 651px TO 1199px */
+
+@media (min-width: 651px) and (max-width: 1199px) {
+  .section {
+    padding-left: var(--page-padding-tablet);
+    padding-right: var(--page-padding-tablet);
+    padding-bottom: var(--section-space-tablet);
+    padding-top: var(--section-space-tablet);
+  }
+
+  .hero {
+    padding-left: var(--page-padding-tablet);
+    padding-right: var(--page-padding-tablet);
+  }
+
+  .contact-section {
+    padding-left: var(--page-padding-tablet);
+    padding-right: var(--page-padding-tablet);
+  }
+
+  .hero-content {
+    gap: 48px;
+  }
+
+  .about-layout,
+  .experience-layout,
+  .skills-layout {
+    gap: 60px;
+  }
+
+  .collections-intro {
+    gap: 45px;
+  }
+
+  .collection-header {
+    grid-template-columns: 90px minmax(0, 1fr);
+  }
+
+  .collection-index {
+    font-size: 4rem;
+  }
+}
+
+
+
+/* MOBILE LAYOUT — 650px AND BELOW */
+
+@media (max-width: 650px) {
+  .section {
+    padding-left: var(--page-padding-mobile);
+    padding-right: var(--page-padding-mobile);
+    padding-bottom: var(--section-space-mobile);
+    padding-top: var(--section-space-mobile);
+  }
+
+  .hero {
+    padding-left: var(--page-padding-mobile);
+    padding-right: var(--page-padding-mobile);
+  }
+
+  .contact-section {
+    padding-left: var(--page-padding-mobile);
+    padding-right: var(--page-padding-mobile);
+    padding-top: 95px;
+  }
+
+  .section-index {
+    margin-bottom: 42px;
+    padding-bottom: 11px;
+  }
+
+  .hero-content {
+    gap: 45px;
+    padding-bottom: 80px;
+    padding-top: 65px;
+  }
+
+  .about-layout,
+  .experience-layout,
+  .skills-layout {
+    gap: 45px;
+  }
+
+  .collections-intro {
+    margin-bottom: 55px;
+  }
+
+  .collection-navigation {
+    margin-bottom: 80px;
+  }
+
+  .art-collection {
+    margin-bottom: 110px;
+  }
+
+  .collection-header {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+  }
+
+  .collection-grid {
+    gap: 18px;
+  }
+
+  .about-content {
+    padding-top: 0;
+  }
+
+  .profile-frame {
+    margin-top: 38px;
+  }
+
+  .about-details {
+    gap: 24px;
+    margin-top: 38px;
+    padding-top: 28px;
+  }
+
+  .timeline-item {
+    gap: 18px;
+    padding: 30px 0;
+  }
+
+  .skill-group {
+    padding-bottom: 36px;
+    padding-top: 26px;
+  }
+
+  .contact-email {
+    margin-top: 48px;
+  }
+
+  .contact-links {
+    margin-top: 34px;
+  }
+
+  .site-footer {
+    margin-top: 80px;
+  }
+}
+
+
+
+/* LAYOUT SAFETY */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.hero-content,
+.about-layout,
+.collections-intro,
+.collection-header,
+.collection-heading,
+.experience-layout,
+.skills-layout,
+.contact-content {
+  min-width: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* ========================================
+   VERSION 1.1.3
+   GALLERY LAYOUTS
+======================================== */
+
+
+/* Reset the old shared artwork pattern */
+
+.art-collection .collection-grid {
+  width: 100%;
+}
+
+.art-collection .collection-artwork,
+.art-collection .collection-artwork:nth-child(n) {
+  min-width: 0;
+  width: 100%;
+}
+
+
+
+/* DIGITAL PAINTING - Editorial mixed layout */
+
+.collection-digital .collection-grid {
+  display: grid;
+  gap: clamp(16px, 1.8vw, 26px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-flow: dense;
+}
+
+.collection-digital .collection-artwork:nth-child(n) {
+  grid-column: span 4;
+}
+
+.collection-digital .collection-artwork:nth-child(8n + 1),
+.collection-digital .collection-artwork:nth-child(8n + 6) {
+  grid-column: span 8;
+}
+
+.collection-digital .collection-artwork:nth-child(8n + 2),
+.collection-digital .collection-artwork:nth-child(8n + 5) {
+  grid-column: span 4;
+}
+
+.collection-digital .collection-artwork:nth-child(8n + 3) {
+  grid-column: span 5;
+}
+
+.collection-digital .collection-artwork:nth-child(8n + 4) {
+  grid-column: span 7;
+}
+
+.collection-digital .collection-artwork:nth-child(8n + 7),
+.collection-digital .collection-artwork:nth-child(8n) {
+  grid-column: span 6;
+}
+
+.collection-digital .collection-artwork-image {
+  aspect-ratio: 4 / 3;
+}
+
+.collection-digital .collection-artwork:nth-child(8n + 1)
+.collection-artwork-image,
+.collection-digital .collection-artwork:nth-child(8n + 6)
+.collection-artwork-image {
+  aspect-ratio: 16 / 9;
+}
+
+.collection-digital .collection-artwork:nth-child(8n + 2)
+.collection-artwork-image {
+  aspect-ratio: 3 / 4;
+}
+
+
+
+/* TRADITIONAL ARTWORK - Natural-size masonry layout */
+
+.collection-traditional .collection-grid {
+  columns: 3;
+  column-gap: clamp(16px, 2vw, 28px);
+  display: block;
+}
+
+.collection-traditional .collection-artwork:nth-child(n) {
+  break-inside: avoid;
+  display: inline-block;
+  margin-bottom: clamp(16px, 2vw, 28px);
+  width: 100%;
+}
+
+.collection-traditional .collection-artwork-image,
+.collection-traditional .collection-artwork:nth-child(n)
+.collection-artwork-image {
+  aspect-ratio: auto;
+}
+
+.collection-traditional .collection-artwork-image img {
+  height: auto;
+  object-fit: contain;
+  width: 100%;
+}
+
+
+
+/* PORTRAIT DRAWING - Tall two-column layout */
+
+.collection-portrait .collection-grid {
+  display: grid;
+  gap: clamp(18px, 2.5vw, 36px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+.collection-portrait .collection-artwork:nth-child(n) {
+  grid-column: auto;
+}
+
+.collection-portrait .collection-artwork-image,
+.collection-portrait .collection-artwork:nth-child(n)
+.collection-artwork-image {
+  aspect-ratio: 3 / 4;
+}
+
+.collection-portrait .collection-artwork-image img {
+  object-position: center top;
+}
+
+
+
+/* ILLUSTRATION - Large feature layout */
+
+.collection-illustration .collection-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr;
+}
+
+.collection-illustration .collection-artwork:nth-child(n) {
+  grid-column: 1 / -1;
+}
+
+.collection-illustration .collection-artwork-image,
+.collection-illustration .collection-artwork:nth-child(n)
+.collection-artwork-image {
+  aspect-ratio: 16 / 9;
+  max-height: 720px;
+}
+
+.collection-illustration .collection-artwork-image img {
+  object-fit: contain;
+}
+
+
+
+/* MASCOT DESIGN - Balanced 2 × 2 layout */
+
+.collection-mascot .collection-grid {
+  display: grid;
+  gap: clamp(18px, 2vw, 28px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+.collection-mascot .collection-artwork:nth-child(n) {
+  grid-column: auto;
+}
+
+.collection-mascot .collection-artwork-image,
+.collection-mascot .collection-artwork:nth-child(n)
+.collection-artwork-image {
+  aspect-ratio: 1 / 1;
+}
+
+.collection-mascot .collection-artwork-image img {
+  object-fit: contain;
+}
+
+
+
+/* LOGO DESIGN - Minimal centered presentation */
+
+.collection-logo .collection-grid {
+  display: grid;
+  gap: clamp(24px, 4vw, 60px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+.collection-logo .collection-artwork:nth-child(n) {
+  background: var(--cream);
+  grid-column: auto;
+  padding: clamp(25px, 5vw, 70px);
+}
+
+.collection-logo .collection-artwork-image,
+.collection-logo .collection-artwork:nth-child(n)
+.collection-artwork-image {
+  aspect-ratio: 1 / 1;
+  background: transparent;
+}
+
+.collection-logo .collection-artwork-image img {
+  object-fit: contain;
+}
+
+
+/* SOCIAL MEDIA DESIGN - Clean three-column feed */
+
+.collection-social .collection-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.collection-social .collection-artwork:nth-child(n) {
+  grid-column: auto;
+}
+
+.collection-social .collection-artwork-image,
+.collection-social .collection-artwork:nth-child(n)
+.collection-artwork-image {
+  aspect-ratio: 1 / 1;
+}
+
+.collection-social .collection-artwork-image img {
+  object-fit: cover;
+}
+
+
+/* OTHER PROJECTS - Mixed case-study layout */
+
+.collection-others .collection-grid {
+  display: grid;
+  gap: clamp(18px, 2vw, 28px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.collection-others .collection-artwork:nth-child(n) {
+  grid-column: span 6;
+}
+
+.collection-others .collection-artwork:nth-child(4n + 1) {
+  grid-column: span 7;
+}
+
+.collection-others .collection-artwork:nth-child(4n + 2) {
+  grid-column: span 5;
+}
+
+.collection-others .collection-artwork-image,
+.collection-others .collection-artwork:nth-child(n)
+.collection-artwork-image {
+  aspect-ratio: 4 / 3;
+}
+
+.collection-others .collection-artwork:nth-child(4n + 1)
+.collection-artwork-image {
+  aspect-ratio: 16 / 10;
+}
+
+
+
+/* TABLET COLLECTION LAYOUTS */
+
+@media (min-width: 651px) and (max-width: 1199px) {
+  .collection-digital .collection-artwork:nth-child(n) {
+    grid-column: span 6;
+  }
+
+  .collection-digital .collection-artwork:nth-child(5n + 1) {
+    grid-column: 1 / -1;
+  }
+
+  .collection-traditional .collection-grid {
+    columns: 2;
+  }
+
+  .collection-social .collection-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .collection-others .collection-artwork:nth-child(n) {
+    grid-column: span 6;
+  }
+}
+
+
+/* MOBILE COLLECTION LAYOUTS */
+
+@media (max-width: 650px) {
+  .collection-digital .collection-grid,
+  .collection-portrait .collection-grid,
+  .collection-illustration .collection-grid,
+  .collection-mascot .collection-grid,
+  .collection-logo .collection-grid,
+  .collection-social .collection-grid,
+  .collection-others .collection-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .collection-digital .collection-artwork:nth-child(n),
+  .collection-portrait .collection-artwork:nth-child(n),
+  .collection-illustration .collection-artwork:nth-child(n),
+  .collection-mascot .collection-artwork:nth-child(n),
+  .collection-logo .collection-artwork:nth-child(n),
+  .collection-social .collection-artwork:nth-child(n),
+  .collection-others .collection-artwork:nth-child(n) {
+    grid-column: 1 / -1;
+  }
+
+  .collection-traditional .collection-grid {
+    columns: 1;
+  }
+
+  /* Show artwork naturally on phones */
+
+  .collection-digital .collection-artwork-image,
+  .collection-digital .collection-artwork:nth-child(n)
+  .collection-artwork-image,
+
+  .collection-traditional .collection-artwork-image,
+  .collection-traditional .collection-artwork:nth-child(n)
+  .collection-artwork-image,
+
+  .collection-portrait .collection-artwork-image,
+  .collection-portrait .collection-artwork:nth-child(n)
+  .collection-artwork-image,
+
+  .collection-illustration .collection-artwork-image,
+  .collection-illustration .collection-artwork:nth-child(n)
+  .collection-artwork-image,
+
+  .collection-mascot .collection-artwork-image,
+  .collection-mascot .collection-artwork:nth-child(n)
+  .collection-artwork-image,
+
+  .collection-logo .collection-artwork-image,
+  .collection-logo .collection-artwork:nth-child(n)
+  .collection-artwork-image,
+
+  .collection-others .collection-artwork-image,
+  .collection-others .collection-artwork:nth-child(n)
+  .collection-artwork-image {
+    aspect-ratio: auto;
+  }
+
+  .collection-digital .collection-artwork-image img,
+  .collection-traditional .collection-artwork-image img,
+  .collection-portrait .collection-artwork-image img,
+  .collection-illustration .collection-artwork-image img,
+  .collection-mascot .collection-artwork-image img,
+  .collection-logo .collection-artwork-image img,
+  .collection-others .collection-artwork-image img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Keep social posts consistently square */
+
+  .collection-social .collection-artwork-image,
+  .collection-social .collection-artwork:nth-child(n)
+  .collection-artwork-image {
+    aspect-ratio: 1 / 1;
+  }
+
+  .collection-social .collection-artwork-image img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+

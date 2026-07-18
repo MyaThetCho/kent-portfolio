@@ -1,5 +1,9 @@
 "use strict";
 
+/* ========================================
+   01. DATA HELPER
+======================================== */
+
 /**
  * Creates numbered artwork entries.
  *
@@ -28,7 +32,13 @@ function createNumberedArtworks(
   });
 }
 
+/* ========================================
+   02. PORTFOLIO COLLECTIONS
+   Edit artwork titles, paths, and descriptions here.
+======================================== */
+
 window.portfolioCollections = [
+  /* 02.1 DIGITAL PAINTING */
   {
     id: "digital",
     title: "Digital Painting",
@@ -42,6 +52,7 @@ window.portfolioCollections = [
     )
   },
 
+  /* 02.2 TRADITIONAL ARTWORK */
   {
     id: "traditional",
     title: "Traditional Artwork",
@@ -55,6 +66,7 @@ window.portfolioCollections = [
     )
   },
 
+  /* 02.3 PORTRAIT DRAWING */
   {
     id: "portrait",
     title: "Portrait Drawing",
@@ -68,6 +80,7 @@ window.portfolioCollections = [
     )
   },
 
+  /* 02.4 ILLUSTRATION */
   {
     id: "illustration",
     title: "Illustration",
@@ -81,6 +94,7 @@ window.portfolioCollections = [
     )
   },
 
+  /* 02.5 MASCOT DESIGN */
   {
     id: "mascot",
     title: "Mascot Design",
@@ -94,6 +108,7 @@ window.portfolioCollections = [
     )
   },
 
+  /* 02.6 LOGO DESIGN */
   {
     id: "logo",
     title: "Logo Design",
@@ -118,6 +133,7 @@ window.portfolioCollections = [
     ]
   },
 
+  /* 02.7 SOCIAL MEDIA DESIGN */
   {
     id: "social",
     title: "Social Media Design",
@@ -253,6 +269,7 @@ window.portfolioCollections = [
     ]
   },
 
+  /* 02.8 OTHER PROJECTS */
   {
     id: "others",
     title: "Other Projects",
@@ -303,6 +320,10 @@ window.portfolioCollections = [
     ]
   }
 ];
+
+/* ========================================
+   03. DEFAULT DESCRIPTIONS
+======================================== */
 
 /**
  * Add default descriptions where an individual description
