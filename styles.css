@@ -2337,3 +2337,125 @@ img {
 
 
 
+
+
+
+
+/* ========================================
+   VERSION 1.2.1
+   HERO ENTRANCE ANIMATION
+======================================== */
+
+@keyframes heroTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroArtworkReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(1.06);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Text starts hidden */
+
+.hero-reveal > * {
+  opacity: 0;
+}
+
+/* Animate each text element in sequence */
+
+.hero-reveal > *:nth-child(1) {
+  animation: heroTextReveal 0.7s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.hero-reveal > *:nth-child(2) {
+  animation: heroTextReveal 0.8s ease forwards;
+  animation-delay: 0.22s;
+}
+
+.hero-reveal > *:nth-child(3) {
+  animation: heroTextReveal 0.8s ease forwards;
+  animation-delay: 0.36s;
+}
+
+.hero-reveal > *:nth-child(4) {
+  animation: heroTextReveal 0.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* Artwork entrance */
+
+.hero-art-reveal {
+  animation: heroArtworkReveal 1.05s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.18s;
+}
+
+
+
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal > *,
+  .hero-art-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
+
+
+
+
+/* ========================================
+   VERSION 1.2.2
+   SCROLL REVEAL ANIMATIONS
+======================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(48px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+} 
+
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}

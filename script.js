@@ -96,7 +96,7 @@ function renderCollections() {
 
       return `
         <section
-          class="art-collection collection-${collection.id}"
+          class="art-collection collection-${collection.id} reveal"
           id="collection-${collection.id}"
         >
           <header class="collection-header">
@@ -241,9 +241,55 @@ if (currentYear) {
   currentYear.textContent = new Date().getFullYear();
 }
 
+
+
+
+
 /* ========================================
-   08. INITIALIZATION
+   VERSION 1.2.2
+   SCROLL REVEAL OBSERVER
+======================================== */
+
+function initializeScrollReveal() {
+  const revealElements = document.querySelectorAll(".reveal");
+
+  if (!revealElements.length) {
+    return;
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    revealElements.forEach((element) => {
+      element.classList.add("is-visible");
+    });
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0,
+      rootMargin: "0px 0px -40px 0px"
+    }
+  );
+
+  revealElements.forEach((element) => {
+    revealObserver.observe(element);
+  });
+}
+
+
+
+/* ========================================
+    INITIALIZATION
 ======================================== */
 
 renderCollectionNavigation();
 renderCollections();
+initializeScrollReveal();
